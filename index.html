@@ -387,30 +387,7 @@
           </div>
           <div class="col-md-4">
             <div class="md-no">
-              <h1>Join Our Newsletter</h1>
-              <form id="subscribe-form" class="input" method="POST">
-                <input
-                  type="hidden"
-                  name="_token"
-                  value="C7aUx67ofSAKG6bxt02zspon05SM2zotu6Ser4oZ"
-                />
-                <input
-                  class="email-box__input"
-                  id="memail"
-                  placeholder="Enter your E-mail address"
-                />
-                <button class="button email-box__button">
-                  Join Us
-                  <span
-                    class="spinner-border spinner-border-sm onPageloader"
-                    role="status"
-                    aria-hidden="true"
-                    id="spinn"
-                  ></span>
-                </button>
-                <p id="error" class="message"></p>
-                <p id="success" class="message" style="color: forestgreen"></p>
-              </form>
+              <h1></h1>
             </div>
             <p>
               <a href="#">Privacy Policy</a><span>|</span
@@ -419,6 +396,7 @@
             <p>© 2023 Colors of Hope Foundation for Good Health.</p>
           </div>
         </div>
+        <p>Designed by <a href="https://chsgtech.com/" style="color: orange;">CHSG Technologies</a></p>
       </div>
     </div>
 
@@ -560,27 +538,6 @@
       $(".toggle-menu").click(function () {
         $(".nav-menu").toggleClass("expand");
         $(this).toggleClass("switch");
-      });
-    </script>
-
-    <script>
-      $("#subscribe-form").on("submit", function (e) {
-        e.preventDefault();
-        $("#spinn").css("display", "inline-block");
-        var email = $("#memail").val();
-        $.post("/api/subscribe", {
-          email: email,
-        })
-          .success(function (response) {
-            $("#spinn").css("display", "none");
-            $("#error").html("");
-            $("#success").html("Subscribed successfully");
-            $("#memail").val("");
-          })
-          .error(function (error) {
-            $("#spinn").css("display", "none");
-            $("#error").html(error.responseJSON.errors.email[0]);
-          });
       });
     </script>
   </body>
